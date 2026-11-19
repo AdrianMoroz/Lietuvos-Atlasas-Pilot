@@ -1,0 +1,155 @@
+.data-figure {
+  min-width: 0;
+  border: 1px solid var(--color-rule-blue);
+  background: var(--color-slate);
+  color: var(--color-marine);
+}
+
+.data-figure__heading,
+.data-figure__caption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  min-height: 2.9375rem;
+  padding: 0.4375rem 0.9375rem;
+}
+
+.data-figure__heading {
+  border-bottom: 1px solid var(--color-rule-blue);
+}
+
+.data-figure__heading h3 {
+  font: var(--font-weight-emphasis) 1.0625rem / 1.2 var(--font-body);
+}
+
+.data-figure__caption {
+  border-top: 1px solid var(--color-rule-blue);
+  font-weight: var(--font-weight-emphasis);
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.data-figure__caption > :last-child {
+  text-align: right;
+}
+
+.diagram {
+  position: relative;
+  height: 17.25rem;
+}
+
+.diagram svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.monitoring-map {
+  background: var(--color-water);
+}
+
+.monitoring-map__grid {
+  fill: none;
+  stroke: var(--color-map-grid);
+  stroke-opacity: 0.28;
+}
+
+.monitoring-map__contours {
+  fill: none;
+  stroke: var(--color-contour);
+  stroke-opacity: 0.46;
+}
+
+.monitoring-map__land {
+  fill: var(--color-land);
+  stroke: var(--color-coastline);
+}
+
+.monitoring-map__stations {
+  fill: var(--color-station);
+}
+
+.map-label,
+.chart-unit,
+.chart-tick,
+.chart-latest,
+.chart-year {
+  position: absolute;
+  font-size: 0.875rem;
+}
+
+.map-label {
+  font-weight: var(--font-weight-emphasis);
+  line-height: 1.23;
+  text-transform: uppercase;
+}
+
+.map-label--sea { top: 13%; left: 5%; }
+.map-label--city { top: 37%; left: 77%; }
+.map-label--lagoon { top: 71%; left: 65%; max-width: 5.3125rem; }
+
+.map-marker {
+  position: absolute;
+  width: 0.6875rem;
+  height: 0.6875rem;
+  transform: translate(-50%, -50%);
+  border: 2px solid var(--color-marine);
+  border-radius: 50%;
+  background: var(--color-paper);
+}
+
+.map-key {
+  display: inline-block;
+  width: 0.4375rem;
+  height: 0.4375rem;
+  margin-inline-end: 0.1875rem;
+  vertical-align: 0.17em;
+  background: currentColor;
+}
+
+.time-series__grid {
+  stroke: var(--color-plot-grid);
+}
+
+.time-series__area {
+  fill: var(--color-plot-area);
+  fill-opacity: 0.16;
+}
+
+.time-series__line {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.1;
+}
+
+.chart-unit,
+.chart-tick,
+.chart-latest {
+  font-weight: var(--font-weight-emphasis);
+}
+
+.chart-unit { top: 6%; left: 5%; }
+.chart-tick { left: 6%; transform: translateY(-50%); }
+
+.chart-latest {
+  transform: translate(-100%, calc(-100% - 1rem));
+  padding: 0.1875rem 0.4375rem;
+  border: 1px solid var(--color-rule-blue);
+  background: var(--color-paper);
+  white-space: nowrap;
+  line-height: 1.15;
+}
+
+.chart-year {
+  bottom: 7%;
+  line-height: 1.3;
+  font-variant-numeric: tabular-nums;
+  transform: translateX(-50%);
+}
+
+@media (max-width: 740px) {
+  .diagram { height: 13.875rem; }
+  .data-figure__caption { font-size: 0.8125rem; }
+  .map-label--city { right: 2%; left: auto; }
+}
