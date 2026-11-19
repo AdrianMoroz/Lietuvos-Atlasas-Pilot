@@ -1,0 +1,111 @@
+.design-guide {
+  width: min(58.5rem, 100%);
+  margin-inline: auto;
+}
+
+.design-guide__intro,
+.design-guide__block {
+  padding: 2.0625rem 2.6875rem;
+}
+
+.design-guide__intro {
+  background: var(--color-vellum);
+}
+
+.design-guide h1 {
+  margin-block: 0.875rem;
+  font-size: 3.625rem;
+  line-height: 0.97;
+  letter-spacing: -0.02em;
+}
+
+.design-guide__intro p:last-child {
+  max-width: 34.375rem;
+}
+
+.design-guide h2 {
+  margin-block-end: 0.9375rem;
+  font: var(--font-weight-emphasis) 1.5625rem / 1.1 var(--font-body);
+}
+
+.swatches {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.8125rem;
+  padding: 0;
+  list-style: none;
+}
+
+.swatch-color {
+  height: 4.125rem;
+  border: 1px solid var(--color-rule);
+  background: var(--swatch-color);
+}
+
+.swatches strong,
+.swatches .label {
+  display: block;
+  padding-block-start: 0.25rem;
+}
+
+.swatches .label {
+  font-size: 0.8125rem;
+}
+
+.design-guide__type {
+  background: var(--color-slate);
+  color: var(--color-marine);
+}
+
+.design-guide__samples,
+.design-guide__art {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  column-gap: 1.75rem;
+}
+
+.design-guide__samples p {
+  margin-block: 0.375rem 0.6875rem;
+}
+
+.design-guide__samples .design-guide__sample-title {
+  margin-block: 0.625rem 0.3125rem;
+  font-size: 3.25rem;
+  line-height: 1.08;
+  letter-spacing: -0.022em;
+}
+
+.design-guide__art {
+  align-items: center;
+  background: var(--color-sage);
+}
+
+.design-guide__art img {
+  height: 12.875rem;
+  object-fit: contain;
+}
+
+@media (max-width: 650px) {
+  .design-guide__intro,
+  .design-guide__block {
+    padding: 1.5625rem var(--gutter);
+  }
+
+  .design-guide h1 {
+    font-size: clamp(1.375rem, 6.5vw, 2.6875rem);
+  }
+
+  .swatches {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .design-guide__samples,
+  .design-guide__art {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.8125rem;
+  }
+
+  .design-guide__samples .design-guide__sample-title {
+    font-size: clamp(1.875rem, 9vw, 3.25rem);
+  }
+}

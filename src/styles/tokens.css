@@ -1,0 +1,55 @@
+:root {
+  /* Paper, ink, and the color fields of V4. */
+  --color-vellum: #e9e0c9;
+  --color-paper: #f0eadb;
+  --color-sage: #d8dfd0;
+  --color-slate: #d3dce0;
+  --color-binding: #2b4439;
+  --color-ink: #243e33;
+  --color-marine: #254554;
+  --color-rule: #778675;
+  --color-rule-light: #a8aa97;
+  --color-rule-blue: #7d9199;
+
+  /* Map and chart ink. */
+  --color-water: #c1d0d5;
+  --color-land: #e3e0ca;
+  --color-coastline: #647878;
+  --color-map-grid: #627a87;
+  --color-contour: #5c7f8c;
+  --color-station: #3e6271;
+  --color-plot-grid: #8297a0;
+  --color-plot-area: #64848f;
+
+  --font-display: 'Climate Crisis', sans-serif;
+  --font-body: 'National Park', sans-serif;
+  --font-label: 'Bitcount Prop Single', monospace;
+  --font-weight-body: 500;
+  --font-weight-emphasis: 600;
+  --size-body: 1rem;
+  --size-label: 1rem;
+  --size-display: clamp(2.0625rem, 4.25vw, 3.8125rem);
+  --size-home-title: clamp(4rem, 7vw, 6.3125rem);
+  --size-chapter-title: clamp(2.8125rem, 6.4vw, 5.75rem);
+
+  --content-max: 82rem;
+  --gutter: 4rem;
+  --section-block: 3.25rem;
+}
+
+@media (max-width: 1040px) {
+  :root {
+    --gutter: 2.375rem;
+    --size-home-title: clamp(3.3125rem, 7.9vw, 5.6875rem);
+  }
+}
+
+@media (max-width: 740px) {
+  :root {
+    --gutter: 1.3125rem;
+    --section-block: 2.125rem;
+    --size-display: clamp(1.75rem, 8.5vw, 3.5rem);
+    --size-home-title: clamp(1.625rem, 11.7vw, 4.6875rem);
+    --size-chapter-title: clamp(1.875rem, 11.2vw, 4rem);
+  }
+}

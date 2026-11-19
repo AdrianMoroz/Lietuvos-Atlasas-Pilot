@@ -1,0 +1,157 @@
+.chapter-hero {
+  padding-block: 1.875rem 2.1875rem;
+  background: var(--color-sage);
+}
+
+.chapter-hero__navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-block-end: 1.5rem;
+}
+
+.chapter-hero__opening {
+  display: grid;
+  grid-template-columns: minmax(0, 0.96fr) minmax(0, 1.36fr);
+  align-items: center;
+  gap: 2rem;
+}
+
+.chapter-hero h1 {
+  position: relative;
+  width: max-content;
+  margin-block: 0.875rem 1.4375rem;
+  font-size: var(--size-chapter-title);
+  line-height: 1.11;
+}
+
+.chapter-hero h1 span {
+  display: block;
+}
+
+.chapter-hero__intro p {
+  max-width: 21.875rem;
+}
+
+.chapter-hero__intro .arrow-link {
+  margin-block-start: 1.375rem;
+}
+
+.chapter-hero__figure img {
+  max-height: 28rem;
+  object-fit: contain;
+}
+
+.chapter-hero__figure .specimen-caption {
+  padding-block-start: 0.4375rem;
+}
+
+.chapter-story {
+  padding-block: 2.3125rem 2.5625rem;
+  background: var(--color-slate);
+  color: var(--color-marine);
+}
+
+.chapter-story__layout {
+  display: grid;
+  grid-template-columns: 1.18fr 1fr;
+  align-items: center;
+  gap: 5.1875rem;
+}
+
+.chapter-story h2 {
+  margin-block-start: 0.5625rem;
+  font-size: clamp(2.0625rem, 3.6vw, 3.3125rem);
+  line-height: 1.12;
+}
+
+.chapter-story p {
+  max-width: 28.75rem;
+}
+
+.chapter-story .arrow-link {
+  margin-block-start: 0.625rem;
+}
+
+.observations {
+  padding-block: calc(var(--section-block) + 0.25rem) calc(var(--section-block) + 0.3125rem);
+}
+
+.observations .section-heading h2 {
+  font-size: clamp(2.1875rem, 4.1vw, 3.6875rem);
+}
+
+.observations__figures {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 1.3125rem;
+}
+
+.chapter-api {
+  padding-block: 3.0625rem 3.375rem;
+  background: var(--color-sage);
+}
+
+.chapter-api__layout {
+  display: grid;
+  grid-template-columns: 1.02fr minmax(0, 1fr);
+  align-items: center;
+  gap: 3.5rem;
+}
+
+.chapter-api h2 {
+  margin-block: 0.5625rem 0.8125rem;
+  font-size: clamp(2.1875rem, 4.1vw, 3.5625rem);
+}
+
+.chapter-api p {
+  max-width: 22.4375rem;
+}
+
+@media (max-width: 1040px) {
+  .chapter-story__layout { gap: 3.0625rem; }
+}
+
+@media (max-width: 740px) {
+  .chapter-hero {
+    padding-block: 1.25rem 1.8125rem;
+  }
+
+  .chapter-hero__navigation {
+    margin-block-end: 1rem;
+  }
+
+  .chapter-hero__navigation .label {
+    font-size: 0.8125rem;
+    text-align: right;
+  }
+
+  .chapter-hero__opening,
+  .chapter-story__layout,
+  .observations__figures,
+  .chapter-api__layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.4375rem;
+  }
+
+  .chapter-hero__figure img {
+    max-height: 15.1875rem;
+  }
+
+  .chapter-story,
+  .chapter-api {
+    padding-block: 2.125rem 2.3125rem;
+  }
+
+  .chapter-story h2,
+  .chapter-api h2,
+  .observations .section-heading h2 {
+    font-size: var(--size-display);
+  }
+
+  .observations {
+    padding-block: var(--section-block) 2.625rem;
+  }
+}
