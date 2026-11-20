@@ -1,5 +1,7 @@
 import type { ArtworkSource } from '../components/Artwork';
-import { pages } from '../navigation';
+import type { StationId } from './monitoring';
+import { sources } from './sources';
+import type { Source } from './sources';
 import sealHero from '../assets/illustrations/seal-hero.png';
 import sealHeroMobile from '../assets/illustrations/seal-hero-mobile.png';
 import sealChapter from '../assets/illustrations/seal-chapter.png';
@@ -39,20 +41,40 @@ export const greySeal = {
 };
 
 export type Place = {
-  id: string;
   label: string;
   name: string;
+  title: readonly [string, string];
   summary: string;
+  introduction: string;
   artwork: ArtworkSource;
-  href?: string;
+  cover: { artwork: ArtworkSource; caption: string; scientificName?: string };
+  story: { title: string; text: string; source: Source };
+  stationId: StationId;
 };
 
-export const places: readonly Place[] = [
-  {
-    id: 'baltic-sea',
+const shoreArtwork = {
+  src: shoreTile,
+  mobileSrc: shoreTileMobile,
+  width: 416,
+  height: 239,
+  alt: 'Smėlio kopos virš Baltijos jūros pakrantės.',
+};
+
+const lagoonArtwork = {
+  src: lagoonTile,
+  mobileSrc: lagoonTileMobile,
+  width: 375,
+  height: 239,
+  alt: 'Garnys tarp Kuršių marių pakrantės nendrių.',
+};
+
+export const places = {
+  balticSea: {
     label: '01 / Atvira jūra',
     name: 'Baltijos jūra',
+    title: ['Baltijos', 'jūra'],
     summary: 'Gyvybė sūrokame vandenyje.',
+    introduction: 'Tarp sūraus vandenyno ir gėlo upių vandens. Susipažinkite su Baltijos gyvybe ir panagrinėkite, kaip kinta jos vanduo.',
     artwork: {
       src: sealTile,
       mobileSrc: sealTileMobile,
@@ -60,32 +82,42 @@ export const places: readonly Place[] = [
       height: 239,
       alt: 'Pilkasis ruonis Baltijos jūros pakrantėje.',
     },
-    href: pages.balticSea,
+    cover: { artwork: greySeal.chapter, caption: greySeal.caption, scientificName: greySeal.scientificName },
+    story: {
+      title: 'Sūri tik iš dalies',
+      text: 'Baltijoje upių vanduo maišosi su sūresniu vandeniu, atitekančiu per Danijos sąsiaurius. Todėl druskingumas skiriasi priklausomai nuo vietos ir gylio. Palyginimui svarbu žinoti, kur ir kokiame gylyje paimtas mėginys.',
+      source: sources.monitoring,
+    },
+    stationId: 'A',
   },
-  {
-    id: 'lithuanian-coast',
+  coast: {
     label: '02 / Pakrantės vandenys',
     name: 'Lietuvos priekrantė',
+    title: ['Lietuvos', 'priekrantė'],
     summary: 'Dabartinis krantas ir jo kaita.',
-    artwork: {
-      src: shoreTile,
-      mobileSrc: shoreTileMobile,
-      width: 416,
-      height: 239,
-      alt: 'Smėlio kopos virš Baltijos jūros pakrantės.',
+    introduction: 'Sekli jūra, smėlis ir kopos. Čia vandens matavimai papildo pasakojimą apie nuolat kintančią pakrantę.',
+    artwork: shoreArtwork,
+    cover: { artwork: shoreArtwork, caption: 'Baltijos pakrantė · sukurta iliustracija' },
+    story: {
+      title: 'Kintantis krantas',
+      text: 'Audros gali nuardyti paplūdimį, o srovės perneša smėlį į kitą vietą. Aplinkos apsaugos agentūros tyrėjai skenuoja krantą ir lygina jo reljefą skirtingu metu. Toks sluoksnis padėtų atlase susieti pasakojimą su kranto matavimais.',
+      source: sources.shore,
     },
+    stationId: 'B',
   },
-  {
-    id: 'curonian-lagoon',
+  lagoon: {
     label: '03 / Lagūna',
     name: 'Kuršių marios',
+    title: ['Kuršių', 'marios'],
     summary: 'Gėlo ir sūraus vandens sandūra.',
-    artwork: {
-      src: lagoonTile,
-      mobileSrc: lagoonTileMobile,
-      width: 375,
-      height: 239,
-      alt: 'Garnys tarp Kuršių marių pakrantės nendrių.',
+    introduction: 'Tarp Nemuno ir Baltijos telkšo sekli lagūna. Jos ryšį su jūra galima tyrinėti skaitant druskingumo ir temperatūros matavimus.',
+    artwork: lagoonArtwork,
+    cover: { artwork: lagoonArtwork, caption: 'Kuršių marių nendrynai · sukurta iliustracija' },
+    story: {
+      title: 'Vandens sandūra',
+      text: 'Per Klaipėdos sąsiaurį jūros vanduo gali patekti į marias. Matavimų serija padeda tyrinėti šią vandens apykaitą ir atskirti trumpą epizodą nuo ilgesnio pokyčio.',
+      source: sources.stations,
     },
+    stationId: 'C',
   },
-];
+} as const satisfies Record<string, Place>;
