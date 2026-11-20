@@ -14,7 +14,7 @@ body {
   font: var(--font-weight-body) var(--size-body) / 1.6 var(--font-body);
 }
 
-:where(h1, h2, h3, p, figure, pre, ul) {
+:where(h1, h2, h3, p, figure, pre, ul, ol, dl, dd) {
   margin: 0;
 }
 
@@ -22,9 +22,18 @@ a {
   color: inherit;
 }
 
-:where(a, pre):focus-visible {
+:where(a, button, select, summary, pre):focus-visible {
   outline: 2px solid currentColor;
   outline-offset: 0.25rem;
+}
+
+button, select {
+  color: inherit;
+  font: inherit;
+}
+
+button, summary {
+  cursor: pointer;
 }
 
 :where(section, figure)[id] {
@@ -107,15 +116,22 @@ a {
   height: 1.0625rem;
 }
 
-.arrow-link--outlined {
+.arrow-link--outlined,
+.outline-button {
   justify-content: space-between;
   gap: 1.375rem;
   width: fit-content;
   min-height: 3rem;
   padding: 0.4375rem 0.6875rem 0.4375rem 0.8125rem;
   border: 1px solid currentColor;
+  background: transparent;
   font: var(--font-weight-emphasis) 0.9375rem / 1.2 var(--font-body);
   text-decoration: none;
+}
+
+.outline-button {
+  display: inline-flex;
+  align-items: center;
 }
 
 .arrow-link--outlined .arrow-icon {
@@ -126,7 +142,7 @@ a {
 .link-index {
   padding: 0;
   list-style: none;
-  border-top: 1px solid var(--color-rule-blue);
+  border-top: 1px solid var(--color-rule);
 }
 
 .arrow-link--index {
@@ -134,14 +150,22 @@ a {
   justify-content: space-between;
   gap: 0.875rem;
   min-height: 3.3125rem;
-  border-bottom: 1px solid var(--color-rule-blue);
+  border-bottom: 1px solid var(--color-rule);
   font-weight: var(--font-weight-emphasis);
   text-decoration: none;
 }
 
 .arrow-link--outlined:hover,
-.arrow-link--index:hover {
+.arrow-link--index:hover,
+.outline-button:hover {
   text-decoration: underline;
+}
+
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
 }
 
 @media (max-width: 740px) {

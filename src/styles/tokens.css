@@ -1,25 +1,23 @@
 :root {
-  /* Paper, ink, and the color fields of V4. */
-  --color-vellum: #e9e0c9;
-  --color-paper: #f0eadb;
-  --color-sage: #d8dfd0;
-  --color-slate: #d3dce0;
-  --color-binding: #2b4439;
-  --color-ink: #243e33;
-  --color-marine: #254554;
-  --color-rule: #778675;
-  --color-rule-light: #a8aa97;
-  --color-rule-blue: #7d9199;
+  /* V3 palette. Change these values to recolor the atlas. */
+  --color-lime: #e1f077;
+  --color-paper: #f5f4db;
+  --color-mint: #c9ead7;
+  --color-lilac: #dcd2ff;
+  --color-ink: #22361f;
+  --color-violet: #381776;
 
-  /* Map and chart ink. */
-  --color-water: #c1d0d5;
-  --color-land: #e3e0ca;
-  --color-coastline: #647878;
-  --color-map-grid: #627a87;
-  --color-contour: #5c7f8c;
-  --color-station: #3e6271;
-  --color-plot-grid: #8297a0;
-  --color-plot-area: #64848f;
+  /* Rules and the two data figures. */
+  --color-rule: #70824e;
+  --color-rule-light: #a1ac78;
+  --color-figure-rule: #749081;
+  --color-water: #b1dcc8;
+  --color-land: var(--color-lilac);
+  --color-coastline: #678478;
+  --color-map-grid: #547b6a;
+  --color-contour: #567d6b;
+  --color-plot-grid: #789688;
+  --color-plot-area: var(--color-violet);
 
   --font-display: 'Climate Crisis', sans-serif;
   --font-body: 'National Park', sans-serif;

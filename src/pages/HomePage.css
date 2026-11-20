@@ -1,5 +1,5 @@
 .atlas-hero {
-  background: var(--color-vellum);
+  background: var(--color-lime);
 }
 
 .atlas-hero__layout {
@@ -37,7 +37,7 @@
   font-size: 1.0625rem;
 }
 
-.atlas-hero__intro .arrow-link {
+.atlas-hero__intro .button-row {
   margin-block-start: 1.3125rem;
 }
 
@@ -126,8 +126,8 @@ a.place-card__body:focus-visible h3 {
 
 .data-band {
   padding-block: 2.75rem 3rem;
-  background: var(--color-slate);
-  color: var(--color-marine);
+  background: var(--color-lilac);
+  color: var(--color-violet);
 }
 
 .data-band__layout {
@@ -182,7 +182,7 @@ a.place-card__body:focus-visible h3 {
     font-size: 0.9375rem;
   }
 
-  .atlas-hero__intro .arrow-link { margin-block-start: 0.75rem; }
+  .atlas-hero__intro .button-row { margin-block-start: 0.75rem; }
   .catalogue { padding-block-end: 2.625rem; }
 
   .place-grid {

@@ -1,6 +1,6 @@
 .chapter-hero {
   padding-block: 1.875rem 2.1875rem;
-  background: var(--color-sage);
+  background: var(--color-mint);
 }
 
 .chapter-hero__navigation {
@@ -13,21 +13,28 @@
 
 .chapter-hero__opening {
   display: grid;
-  grid-template-columns: minmax(0, 0.96fr) minmax(0, 1.36fr);
+  grid-template-columns: minmax(0, 1.06fr) minmax(0, 1.25fr);
   align-items: center;
   gap: 2rem;
 }
 
+.chapter-hero__intro {
+  container-type: inline-size;
+}
+
 .chapter-hero h1 {
   position: relative;
-  width: max-content;
   margin-block: 0.875rem 1.4375rem;
-  font-size: var(--size-chapter-title);
+  font-size: min(var(--size-chapter-title), 12.5cqi);
   line-height: 1.11;
 }
 
 .chapter-hero h1 span {
   display: block;
+}
+
+.chapter-hero[data-place='coast'] h1 {
+  font-size: min(var(--size-chapter-title), 10.5cqi);
 }
 
 .chapter-hero__intro p {
@@ -49,8 +56,8 @@
 
 .chapter-story {
   padding-block: 2.3125rem 2.5625rem;
-  background: var(--color-slate);
-  color: var(--color-marine);
+  background: var(--color-lilac);
+  color: var(--color-violet);
 }
 
 .chapter-story__layout {
@@ -62,7 +69,7 @@
 
 .chapter-story h2 {
   margin-block-start: 0.5625rem;
-  font-size: clamp(2.0625rem, 3.6vw, 3.3125rem);
+  font-size: clamp(1.75rem, 3.6vw, 3.3125rem);
   line-height: 1.12;
 }
 
@@ -91,7 +98,7 @@
 
 .chapter-api {
   padding-block: 3.0625rem 3.375rem;
-  background: var(--color-sage);
+  background: var(--color-lime);
 }
 
 .chapter-api__layout {
@@ -108,6 +115,11 @@
 
 .chapter-api p {
   max-width: 22.4375rem;
+}
+
+.chapter-api .arrow-link,
+.observations__action {
+  margin-block-start: 1rem;
 }
 
 @media (max-width: 1040px) {

@@ -1,6 +1,8 @@
 # Lietuvos atlasas
 
-A small React and TypeScript implementation of the approved V4 atlas design. It includes the responsive homepage, a Baltic Sea chapter with a schematic map and sample time series, and the palette and typography guide. All three pages use the V4 illustrations and locally bundled fonts.
+A clickable Lithuanian nature atlas pilot for a project discussion. Visitors can read about the Baltic Sea, Lithuanian coastal waters, and Curonian Lagoon, then explore a schematic monitoring station and export its sample data.
+
+The station positions and readings are illustrative. The source links identify candidate datasets for a real pilot. The API page describes a proposed interface and offers working file downloads.
 
 ## Run locally
 
@@ -13,28 +15,41 @@ npm run dev
 
 | Page | Path |
 | --- | --- |
-| Atlas homepage | `/` |
-| Baltic Sea chapter | `/baltijos-jura.html` |
-| Design guide | `/dizaino-kalba.html` |
+| Atlas homepage and place catalogue | `/` |
+| Place chapters | `/baltijos-jura.html`, `/lietuvos-priekrante.html`, `/kursiu-marios.html` |
+| Monitoring explorer | `/stebesena.html` |
+| Data downloads and proposed API | `/duomenys.html` |
+| Two-minute tour, MVP scope, and discussion points | `/apie-pilota.html` |
+| Palette, typography, and illustrations | `/dizaino-kalba.html` |
 
-`npm run build` type-checks the project and writes the static site to `dist/`. Use `npm run preview` to serve that build locally. The pages are separate Vite entries with ordinary HTML links, so a static host can serve them directly.
+`npm run build` type-checks the project and writes the static files to `dist/`. Use `npm run preview` to serve that build locally. The existing GitHub Pages workflow publishes pushes to `main` at [atlasas.adrianmoroz.lt](https://atlasas.adrianmoroz.lt/).
 
-## Where to make changes
+## Experiment with the design
+
+Start with the six palette variables at the top of [`src/styles/tokens.css`](src/styles/tokens.css). Save while `npm run dev` is running and open the design guide to see the updated swatches.
+
+| Variable | Where it appears |
+| --- | --- |
+| `--color-lime` | Masthead, homepage cover, and selected feature bands |
+| `--color-mint` | Chapter covers, data figures, and footer |
+| `--color-paper` | Catalogue, reading surfaces, and menu |
+| `--color-lilac` | Story bands and chart accents |
+| `--color-ink`, `--color-violet` | Main text and accents |
+
+Font stacks, type scale, gutters, and maximum content width are in the same file. Font files are under `src/assets/fonts/`, and their declarations are in `src/styles/fonts.css`. Font license texts are in `public/licenses/`.
+
+## Update content and data
 
 | To change | Edit |
 | --- | --- |
-| Palette, font stacks, type sizes, width, and gutters | `src/styles/tokens.css` |
-| Font files and `@font-face` declarations | `src/assets/fonts/` and `src/styles/fonts.css` |
-| Homepage layout, image proportions, and card spacing | `src/pages/HomePage.css` |
-| Chapter layout and the observation panels | `src/pages/BalticSeaPage.css` and `src/components/DataFigure.css` |
-| Places, illustration sources, or introductory copy | `src/content/atlas.ts` |
-| Sample data, chart scale, and schematic station positions | `src/content/monitoring.ts` |
+| Places, illustrations, and chapter stories | `src/content/atlas.ts` |
+| Station labels, indicators, sample values, and schematic positions | `src/content/monitoring.ts` |
+| Candidate data sources and project references | `src/content/sources.ts` |
+| Demo walkthrough and MVP discussion points | `src/pages/AboutPage.tsx` |
 | Page and section links | `src/navigation.ts` |
+| Homepage and chapter layouts | `src/pages/HomePage.css`, `src/pages/ChapterPage.css` |
+| Map and chart styles | `src/components/DataFigure.css` |
 
-`SiteLayout`, `ArrowLink`, `Artwork`, `SpecimenFigure`, `PlaceCard`, `SectionHeading`, `LinkIndex`, `DataFigure`, `MonitoringMap`, `TimeSeriesChart`, and `ApiExample` live under `src/components/`. The sea chapter and home use the same navigation, illustration and caption components. To add a catalogue entry, extend the places array. Add an `href` when a chapter page exists.
+All three chapters use `ChapterPage`. The explorer, chart, chapter JSON examples, and CSV and JSON exports use the same sample series. Explorer selections are encoded in the URL, so a colleague can open a link to the same station, comparison, indicator, and period.
 
-The map and measurements are schematic and illustrative. The JSON panel is generated from the same sample record used for the latest point in the chart. There is no service endpoint to configure.
-
-The interface includes keyboard focus styles, a skip link, descriptive images, and Lithuanian text descriptions of the chart and map. Font license texts are in `public/licenses/`.
-
-[Original V4 design](https://www.figma.com/design/QSKiANbDFSbI3XSFooHGdU?node-id=29-2)
+[Earlier atlas design in Figma](https://www.figma.com/design/QSKiANbDFSbI3XSFooHGdU?node-id=29-2)

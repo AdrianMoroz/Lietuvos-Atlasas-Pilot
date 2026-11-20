@@ -1,4 +1,5 @@
+import { places } from '../content/atlas';
 import { mountPage } from '../mount';
-import { BalticSeaPage } from '../pages/BalticSeaPage';
+import { ChapterPage } from '../pages/ChapterPage';
 
-mountPage(<BalticSeaPage />);
+mountPage(<ChapterPage place={places.balticSea} />);
