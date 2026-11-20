@@ -1,8 +1,15 @@
 export const pages = {
   home: './index.html',
   balticSea: './baltijos-jura.html',
+  coast: './lietuvos-priekrante.html',
+  lagoon: './kursiu-marios.html',
+  monitoring: './stebesena.html',
+  data: './duomenys.html',
+  about: './apie-pilota.html',
   designGuide: './dizaino-kalba.html',
 } as const;
+
+export type Page = keyof typeof pages;
 
 export const sections = {
   catalogue: 'vietoves',
@@ -16,23 +23,19 @@ export const sections = {
 export type NavigationLink = {
   label: string;
   href: string;
-  wideOnly?: boolean;
 };
 
-export const homeNavigation: readonly NavigationLink[] = [
-  { label: 'Vietovės', href: '#' + sections.catalogue, wideOnly: true },
-  { label: 'Pasakojimai', href: pages.balticSea + '#' + sections.story, wideOnly: true },
-  { label: 'Duomenys ir API', href: '#' + sections.data },
-];
+export const catalogueHref = pages.home + '#' + sections.catalogue;
 
-export const balticNavigation: readonly NavigationLink[] = [
-  { label: 'Vietovės', href: pages.home + '#' + sections.catalogue, wideOnly: true },
-  { label: 'Pasakojimas', href: '#' + sections.story, wideOnly: true },
-  { label: 'Duomenys ir API', href: '#' + sections.api },
+export const mainNavigation: readonly NavigationLink[] = [
+  { label: 'Vietovės', href: catalogueHref },
+  { label: 'Stebėsena', href: pages.monitoring },
+  { label: 'Duomenys ir API', href: pages.data },
+  { label: 'Apie pilotą', href: pages.about },
 ];
 
 export const dataNavigation: readonly NavigationLink[] = [
-  { label: 'Stebėsenos žemėlapis', href: pages.balticSea + '#' + sections.monitoring },
-  { label: 'Laiko eilutės', href: pages.balticSea + '#' + sections.salinity },
-  { label: 'API pavyzdys', href: pages.balticSea + '#' + sections.api },
+  { label: 'Tyrinėti žemėlapį ir rodiklius', href: pages.monitoring },
+  { label: 'Peržiūrėti duomenų pavyzdį', href: pages.data },
+  { label: 'Susipažinti su pilotu', href: pages.about },
 ];
