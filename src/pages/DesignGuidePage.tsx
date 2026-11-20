@@ -1,15 +1,17 @@
 import { useEffect, useRef, useState } from 'react';
 import type { CSSProperties } from 'react';
 import { Artwork } from '../components/Artwork';
+import { SiteLayout } from '../components/SiteLayout';
 import { greySeal } from '../content/atlas';
 import './DesignGuidePage.css';
 
 const swatches = [
-  { name: 'Pergamentas', variable: '--color-vellum' },
+  { name: 'Laimo žalia', variable: '--color-lime' },
+  { name: 'Mėta', variable: '--color-mint' },
   { name: 'Šviesus popierius', variable: '--color-paper' },
-  { name: 'Pilkšva žalia', variable: '--color-sage' },
-  { name: 'Melsva pilka', variable: '--color-slate' },
-  { name: 'Žalias įrišimas', variable: '--color-binding' },
+  { name: 'Alyvinė', variable: '--color-lilac' },
+  { name: 'Miško rašalas', variable: '--color-ink' },
+  { name: 'Violetinis rašalas', variable: '--color-violet' },
 ] as const;
 
 function ColorSwatch({ name, variable }: (typeof swatches)[number]) {
@@ -34,13 +36,20 @@ function ColorSwatch({ name, variable }: (typeof swatches)[number]) {
 
 export function DesignGuidePage() {
   return (
-    <main className="design-guide">
+    <SiteLayout page="designGuide">
+      <DesignGuide />
+    </SiteLayout>
+  );
+}
+
+function DesignGuide() {
+  return (
+    <div className="design-guide">
       <header className="design-guide__intro">
-        <p className="label">Lietuvos atlasas / V4</p>
-        <h1 className="display-heading">Gamtos<br /> enciklopedija</h1>
+        <h1 className="display-heading">Dizaino kalba</h1>
         <p>
-          Šilto popieriaus fonai, tamsiai žalias įrišimas ir melsvai pilkos duomenų skiltys.
-          Stambios V3 antraštės išlieka.
+          Laimo, mėtų ir alyvinės spalvos skiria atlaso dalis. Didelės antraštės ir į foną
+          pereinančios iliustracijos primena gamtos muziejaus ekspoziciją.
         </p>
       </header>
 
@@ -78,6 +87,6 @@ export function DesignGuidePage() {
         </div>
         <Artwork artwork={greySeal.chapter} />
       </section>
-    </main>
+    </div>
   );
 }

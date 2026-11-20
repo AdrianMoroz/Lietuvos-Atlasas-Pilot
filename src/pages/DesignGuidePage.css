@@ -9,7 +9,7 @@
 }
 
 .design-guide__intro {
-  background: var(--color-vellum);
+  background: var(--color-lime);
 }
 
 .design-guide h1 {
@@ -30,7 +30,7 @@
 
 .swatches {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: 0.8125rem;
   padding: 0;
   list-style: none;
@@ -53,8 +53,8 @@
 }
 
 .design-guide__type {
-  background: var(--color-slate);
-  color: var(--color-marine);
+  background: var(--color-lilac);
+  color: var(--color-violet);
 }
 
 .design-guide__samples,
@@ -77,7 +77,7 @@
 
 .design-guide__art {
   align-items: center;
-  background: var(--color-sage);
+  background: var(--color-mint);
 }
 
 .design-guide__art img {
