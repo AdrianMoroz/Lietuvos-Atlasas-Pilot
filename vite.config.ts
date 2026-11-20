@@ -14,6 +14,11 @@ export default defineConfig({
       input: {
         home: entry('./index.html'),
         balticSea: entry('./baltijos-jura.html'),
+        coast: entry('./lietuvos-priekrante.html'),
+        lagoon: entry('./kursiu-marios.html'),
+        monitoring: entry('./stebesena.html'),
+        data: entry('./duomenys.html'),
+        about: entry('./apie-pilota.html'),
         designGuide: entry('./dizaino-kalba.html'),
       },
     },
